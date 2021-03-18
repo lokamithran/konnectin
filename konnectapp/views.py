@@ -254,7 +254,7 @@ class AuthorCreate(CreateView):
             password = hasher.encode(
                 password=password1, salt='salt', iterations=150000)
         try:
-            user = User.objects.create(username=username, password=password)
+            user = User.objects.create(username=username, password=password,email=email)
             Author.objects.create(user=user, email=email,year=year )
         except IntegrityError:
             return render(request, 'konnectapp/userexists.html')
