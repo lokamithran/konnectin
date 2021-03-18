@@ -1,0 +1,28 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Question List &#128196;</h1>
+  {% if question_list %}
+  <ul reversed class="list-group"  >
+    {% for question in question_list %}
+      <li style="padding: 4px; margin: 3px; list-style: none; text-decoration: none;" class="list-group-item list-group-item-action list-group-item-dark">
+        <a style="text-decoration: none; color: black" href="{{ question.get_absolute_url }}?ordering=time_created && date_created">{{ question.question_title }}</a>
+        &nbsp; &nbsp; &nbsp;
+        By
+        <a style="text-decoration: bold; color: blue;" href="{{ question.author.get_absolute_url }}"> <b>{{question.author}}</b> </a>
+        (on {{question.date_updated}})
+
+        {% if user.is_authenticated %}
+            {% if  user.get_username  ==  question.author.user.username  %}
+                <a style="padding: 3px; text-decoration: none;" class="btn btn-primary" href="/konnectapp/question/{{question.id}}/update/">Update Question</a>
+                <a style="padding: 3px; text-decoration: none;" class="btn btn-primary" href="/konnectapp/question/{{question.id}}/delete/">Delete Question</a>
+            {% endif %}
+        {% endif %}
+      </li>
+    {% endfor %}
+
+  </ul>
+  {% else %}
+    <p>There are no questions posted yet.</p>
+  {% endif %}
+{% endblock %}

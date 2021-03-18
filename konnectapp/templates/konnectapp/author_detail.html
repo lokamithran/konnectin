@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+
+<h2>User Details</h2>
+<hr>
+<ul>
+
+        <li><strong>User: </strong> {{ author.user.username }}</li>
+        <li><strong>Email Id: </strong> {{ author.email }}</li>
+        <li><strong>Graduating/Graduated Year: </strong> {{ author.year }}</li>
+        <li><strong>Account Created on: </strong> {{ author.date_created }}</li>
+
+</ul>
+{% endblock %}

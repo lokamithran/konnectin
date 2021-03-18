@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1>Home</h1>
+        <hr></hr>
+        <h2>App statistics &#128203;</h2>
+        <p>Konnect has the following Question&Answers:</p>
+        <ul>
+          <li><strong>Users:</strong> {{ num_authors }}</li>
+          <li><strong>Questions Asked:</strong> {{ num_questions }}</li>
+          <li><strong>Answers Given:</strong> {{ num_answers }}</li>
+        </ul>
+     </div>
+    </div>
+
+
+{% endblock %}

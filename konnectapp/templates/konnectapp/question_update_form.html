@@ -1,0 +1,40 @@
+{% extends "base_generic.html" %}
+
+
+{% block content %}
+<style>
+
+
+p.b {
+  white-space: normal;
+}
+
+</style>
+<form method="POST">
+
+    <div class="form-group">
+        {% csrf_token %}
+    </div>
+
+    <div class="b">
+        <label for="id_question_title">Question text:</label>
+        <br>
+        <textarea   name="question_title" cols="50" rows="1" maxlength="300" required id="id_question_title">
+                {{question_title}}
+        </textarea>
+        <br>
+        <label for="id_question_text">Question text:</label>
+        <br>
+        <textarea  name="question_text" cols="50" rows="10" maxlength="1000"  required id="id_question_text">
+                {{question_text}}
+        </textarea>
+        <br>
+        <span class="helptext">Enter your question in brief</span>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+
+
+{% endblock %}
